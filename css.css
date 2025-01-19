@@ -1,0 +1,218 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f0f8ff, #e6e6fa);
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.map-container {
+    display: inline-block;
+    position: relative;
+    background: #fff;
+    border-radius: 100px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 80px;
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+    overflow: hidden;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    filter: blur(8px) opacity(0.3);
+    z-index: -1;
+}
+
+.station-label {
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.line {
+    stroke-width: 4;
+    fill: none;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+.station {
+    fill: white;
+    stroke: black;
+    stroke-width: 2;
+    r: 6;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.station.selected {
+    fill: yellow;
+}
+
+.station.end-selected {
+    fill: orange;
+}
+
+.station.intermediate {
+    fill: yellow;
+}
+
+/* Line-specific styles */
+.line-1, .station-1 {
+    stroke: #0052A4;
+}
+
+.line-4, .station-4 {
+    stroke: #00A0E9;
+}
+
+.line-kgj, .station-kgj {
+    stroke: #77C4A3;
+}
+
+.line-ar, .station-ar {
+    stroke: #F5A200;
+}
+
+.map-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    filter: blur(8px) opacity(0.3);
+    z-index: -1;
+}
+
+.station-group-seoul, .station-group-digital {
+    fill: rgba(69, 87, 135, 0.2);
+    stroke: #2f309b;
+    stroke-width: 1;
+}
+
+.route-input-container {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    background: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 350px;
+    max-height: 800px;
+    text-align: left;
+    z-index: 10;
+    overflow-y: auto;
+}
+
+.route-input-container h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+.route-input-container label {
+    font-size: 14px;
+    color: #555;
+}
+
+.route-input-container input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.route-input-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0052A4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.route-input-container button:hover {
+    background-color: #003d80;
+}
+
+/* Additional Box Styles */
+.additional-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.additional-box h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #0052A4;
+    padding-bottom: 10px;
+}
+
+.line-info {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.line-info:hover {
+    background: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.line-name {
+    display: inline-block;
+    width: 90px;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.line-1 .line-name {
+    background: #0052A4;
+}
+
+.line-2 .line-name {
+    background: #33CC33;
+}
+
+.line-4 .line-name {
+    background: #00A0E9;
+}
+
+.line-kgj .line-name {
+    background: #77C4A3;
+}
+
+.line-ar .line-name {
+    background: #F5A200;
+}

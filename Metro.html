@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>지하철 노선도</title>
+  <link rel="stylesheet" href="css.css">
+
+</head>
+<body>
+  <h1>알고리즘을 이용한 지하철 노선도</h1>
+  <div class="map-container">
+    <div id="controls" style="text-align: center; margin-bottom: 20px;">
+      <p id="selectionInfo" style="font-weight: bold; font-size: 16px;">출발지: 없음, 도착지: 없음</p>
+    </div>
+    <div class="map-layout">
+    <svg width="1200" height="1400"> <!--svg를 이용한 노선도 구현-->
+      <!--1호선-->  
+      <path d="
+        M 900, 300 
+        L 550, 300 
+        
+        M 550,300       
+        Q 450,300 450,400
+
+        M 450, 400 
+        L 450, 660 
+
+        M 450, 660
+        Q 450, 695 400,690
+
+        M 400, 690 
+        L 250,690
+
+        M 250,690
+        Q 190,690 200, 770
+        
+        M 200, 770
+        L 200, 1010
+        " stroke="#0052A4" stroke-width="4" fill="none" />
+
+        <!--2호선-->
+        <path d="
+        M 900, 340
+        L 750, 340
+
+        M 750, 340
+        L 630, 340
+
+        M 630, 340
+        L 540, 340
+
+        M 540, 340
+        Q 495, 370 450, 400
+
+        M 450, 400
+        L 380, 400
+
+        M 380, 400
+        L 380, 490
+
+        M 380, 490
+        L 280, 490
+        
+        M 280,490
+        Q 250, 490 250, 520
+
+        M 250, 520
+        L 250, 1010
+      " stroke="#33CC33" stroke-width="4" fill="none" />
+
+        <!--4호선-->
+        <path d="
+          M 800, 150
+          L 700, 150
+          
+          M 700, 150
+          Q 650, 150 650, 200
+          
+          M 650, 200
+          L 650, 340
+          
+          M 650, 340
+          Q 660, 380 600, 380
+          
+          M 600, 380
+          L 550, 380
+          
+          M 470,500
+          Q 470, 400 550, 380
+          
+          M 470, 500
+          Q 500, 600 560, 580
+          
+          M 560, 580
+          Q 640, 580 640, 660
+          
+          M 640, 660
+          L 640, 1140
+        "
+        stroke="#00A0E9" stroke-width="4" fill="none"/>
+        
+        <!--경의중앙선-->
+        <path d="
+        M 430, 500
+        Q 430,300 340, 300
+        
+        M 340, 300
+        L 210,300
+        
+        M 210, 300
+        Q 160, 300 160, 220
+
+        M 160, 220
+        L 160, 140
+
+        M 160, 140
+        Q 160, 90 140, 90
+
+        M 140, 90
+        L 10, 90
+        "
+        stroke="#77C4A3" stroke-width="4" fill="none"/>
+        
+        <!--공항철도-->
+        <path d="
+         M 410,500
+          Q 420,550 340,540
+
+          M 340,540
+          Q 270,550 280,490
+
+          M 280,490
+          Q 290,300 210,320
+
+          M 210,320
+          L 90,320
+              
+          M 90, 320
+          Q 10, 320 10,550
+
+          M 10,550
+          L 10, 1100"
+        stroke="#F5A200" stroke-width="4" fill="none"/>
+
+      <!--지하철역 버튼, 글자 위치-->  
+      <!-- 1호선 -->    
+      <ellipse class="station-group-seoul" cx="440" cy="500" rx="40" ry="15" />
+      <circle class="station station-1" cx="900" cy="300" data-name="회기"/>
+      <text class="station-label" x="890" y="290">회기</text>
+      <circle class="station station-1" cx="850" cy="300" data-name="청량리"/>
+      <text class="station-label" x="830" y="290">청량리</text>
+      <circle class="station station-1" cx="800" cy="300" data-name="제기동"/>
+      <text class="station-label" x="780" y="290">제기동</text>
+      <circle class="station station-1" cx="750" cy="300" data-name="신설동"/>
+      <text class="station-label" x="730" y="290">신설동</text>
+      <circle class="station station-1" cx="700" cy="300" data-name="동묘앞"/>
+      <text class="station-label" x="680" y="290">동묘앞</text>
+      <circle class="station station-1" cx="650" cy="300" data-name="동대문"/>
+      <text class="station-label" x="630" y="290">동대문</text>
+      <circle class="station station-1" cx="600" cy="300" data-name="종로5가"/>
+      <text class="station-label" x="580" y="290">종로5가</text>
+      <circle class="station station-1" cx="550" cy="300" data-name="종로3가"/>
+      <text class="station-label" x="530" y="290">종로3가</text>
+      <circle class="station station-1" cx="480" cy="320" data-name="종각"/>
+      <text class="station-label" x="460" y="305">종각</text>
+      <circle class="station station-1" cx="450" cy="400" data-name="시청"/>
+      <text class="station-label" x="460" y="405">시청</text>
+      <circle class="station station-1" cx="450" cy="500" data-name="서울역"/>
+      <text class="station-label" x="485" y="505">서울역</text>
+      <circle class="station station-1" cx="450" cy="550" data-name="남영"/>
+      <text class="station-label" x="460" y="555">남영</text>
+      <circle class="station station-1" cx="450" cy="600" data-name="용산"/>
+      <text class="station-label" x="460" y="605">용산</text>
+      <circle class="station station-1" cx="450" cy="660" data-name="노량진"/>
+      <text class="station-label" x="460" y="665">노량진</text>
+      <circle class="station station-1" cx="400" cy="690" data-name="대방"/>
+      <text class="station-label" x="410" y="705">대방</text>
+      <circle class="station station-1" cx="350" cy="690" data-name="신길"/>
+      <text class="station-label" x="350" y="710">신길</text>
+      <circle class="station station-1" cx="300" cy="690" data-name="영등포"/>
+      <text class="station-label" x="280" y="710">영등포</text>
+      <circle class="station station-1" cx="250" cy="690" data-name="신도림"/>
+      <text class="station-label" x="230" y="710">신도림</text>
+      <circle class="station station-1" cx="200" cy="770" data-name="구로"/>
+      <text class="station-label" x="210" y="770">구로</text>
+      <circle class="station station-1" cx="200" cy="850" data-name="구일"/>
+      <text class="station-label" x="210" y="850">구일</text>
+      <circle class="station station-1" cx="200" cy="930" data-name="개봉"/>
+      <text class="station-label" x="210" y="930">개봉</text>
+      <circle class="station station-1" cx="200" cy="1010" data-name="오류동"/>
+      <text class="station-label" x="210" y="1010">오류동</text>
+
+      <!-- 2호선 역 -->
+      <circle class="station station-2" cx="900" cy="340" data-name="왕십리"/>
+      <text class="station-label" x="885" y="325">왕십리</text>
+          
+      <circle class="station station-2" cx="830" cy="340" data-name="상왕십리"/>
+      <text class="station-label" x="815" y="325">상왕십리</text>
+          
+      <circle class="station station-2" cx="750" cy="340" data-name="신당"/>
+      <text class="station-label" x="735" y="325">신당</text>
+          
+      <circle class="station station-2" cx="650" cy="340" data-name="동대문역사문화공원"/>
+      <text class="station-label" x="660" y="360">동대문역사문화공원</text>
+          
+      <circle class="station station-2" cx="595" cy="340" data-name="을지로4가"/>
+      <text class="station-label" x="575" y="360">을지로4가</text>
+          
+      <circle class="station station-2" cx="540" cy="340" data-name="을지로3가"/>
+      <text class="station-label" x="515" y="360">을지로3가</text>
+          
+      <circle class="station station-2" cx="495" cy="370" data-name="을지로입구"/>
+      <text class="station-label" x="470" y="390">을지로입구</text>
+          
+      <text class="station-label" x="460" y="405">시청</text>
+          
+      <circle class="station station-2" cx="415" cy="400" data-name="충정로"/>
+      <text class="station-label" x="405" y="390">충정로</text>
+          
+      <circle class="station station-2" cx="380" cy="400" data-name="아현"/>
+      <text class="station-label" x="370" y="390">아현</text>
+          
+      <circle class="station station-2" cx="380" cy="445" data-name="이대"/>
+      <text class="station-label" x="385" y="445">이대</text>
+          
+      <circle class="station station-2" cx="380" cy="490" data-name="신촌"/>
+      <text class="station-label" x="385" y="490">신촌</text>
+          
+      <circle class="station station-2" cx="280" cy="490" data-name="홍대입구"/>
+      <text class="station-label" x="220" y="492">홍대입구</text>
+          
+      <circle class="station station-2" cx="250" cy="520" data-name="합정"/>
+      <text class="station-label" x="260" y="520">합정</text>
+          
+      <circle class="station station-2" cx="250" cy="560" data-name="당산"/>
+      <text class="station-label" x="260" y="560">당산</text>
+          
+      <circle class="station station-2" cx="250" cy="600" data-name="영등포구청"/>
+      <text class="station-label" x="260" y="600">영등포구청</text>
+          
+      <circle class="station station-2" cx="250" cy="640" data-name="문래"/>
+      <text class="station-label" x="260" y="640">문래</text>
+          
+      <text class="station-label" x="230" y="710">신도림</text>
+          
+      <circle class="station station-2" cx="250" cy="770" data-name="대림"/>
+      <text class="station-label" x="260" y="770">대림</text>
+          
+      <circle class="station station-2" cx="250" cy="850" data-name="구로디지털단지"/>
+      <text class="station-label" x="260" y="850">구로디지털단지</text>
+          
+      <circle class="station station-2" cx="250" cy="930" data-name="신대방"/>
+      <text class="station-label" x="260" y="930">신대방</text>
+          
+      <circle class="station station-2" cx="250" cy="1010" data-name="신림"/>
+      <text class="station-label" x="260" y="1010">신림</text>
+      <!-- 4호선 --> 
+      <circle class="station station-4" cx="800" cy="150" data-name="미아사거리"/>
+      <text class="station-label" x="780" y="130">미아사거리</text>
+      <circle class="station station-4" cx="750" cy="150" data-name="길음"/>
+      <text class="station-label" x="740" y="130">길음</text>
+      <circle class="station station-4" cx="700" cy="150" data-name="성신여대입구"/>
+      <text class="station-label" x="665" y="130">성신여대입구</text>
+      <circle class="station station-4" cx="650" cy="200" data-name="한성대입구"/>
+      <text class="station-label" x="580" y="205">한성대입구</text>
+      <circle class="station station-4" cx="650" cy="250" data-name="혜화"/>
+      <text class="station-label" x="600" y="255">혜화</text>
+      <text class="station-label" x="630" y="290">동대문</text>
+      <text class="station-label" x="660" y="360">동대문역사문화공원</text>
+      <circle class="station station-4" cx="600" cy="380" data-name="충무로"/>
+      <text class="station-label" x="580" y="400">충무로</text>
+      <circle class="station station-4" cx="550" cy="380" data-name="명동"/>
+      <text class="station-label" x="535" y="400">명동</text>
+      <circle class="station station-4" cx="500" cy="410" data-name="회현"/>
+      <text class="station-label" x="500" y="430">회현</text>
+      <circle class="station station-4" cx="470" cy="500" data-name="서울역"/>
+      <text class="station-label" x="485" y="505">서울역</text>
+      <circle class="station station-4" cx="500" cy="560" data-name="숙대입구"/>
+      <text class="station-label" x="515" y="560">숙대입구</text>
+      <circle class="station station-4" cx="560" cy="580" data-name="삼각지"/>
+      <text class="station-label" x="540" y="600">삼각지</text>
+      <circle class="station station-4" cx="640" cy="660" data-name="신용산"/>
+      <text class="station-label" x="650" y="665">신용산</text>
+      <circle class="station station-4" cx="640" cy="720" data-name="이촌"/>
+      <text class="station-label" x="650" y="725">이촌</text>
+      <circle class="station station-4" cx="640" cy="780" data-name="동작"/>
+      <text class="station-label" x="650" y="785">동작</text>
+      <circle class="station station-4" cx="640" cy="840" data-name="총신대입구(이수)"/>
+      <text class="station-label" x="650" y="845">총신대입구(이수)</text>
+      <circle class="station station-4" cx="640" cy="900" data-name="사당"/>
+      <text class="station-label" x="650" y="905">사당</text>
+      <circle class="station station-4" cx="640" cy="960" data-name="남태령"/>
+      <text class="station-label" x="650" y="965">남태령</text>
+      <circle class="station station-4" cx="640" cy="1020" data-name="선바위"/>
+      <text class="station-label" x="650" y="1025">선바위</text>
+      <circle class="station station-4" cx="640" cy="1080" data-name="경마공원"/>
+      <text class="station-label" x="650" y="1085">경마공원</text>
+      <circle class="station station-4" cx="640" cy="1140" data-name="대공원"/>
+      <text class="station-label" x="650" y="1145">대공원</text>
+    
+      
+      <!--경의중앙선 -->
+      <ellipse class="station-group-digital" cx="210" cy="310" rx="10" ry="20" />
+      <circle class="station station-kgj" cx="430" cy="500" data-name="서울역"/>
+      <text class="station-label" x="485" y="505">서울역</text>
+      <circle class="station station-kgj" cx="340" cy="300" data-name="신촌(경의중앙선)"/>
+      <text class="station-label" x="330" y="280">신촌(경의중앙선)</text>
+      <circle class="station station-kgj" cx="250" cy="300" data-name="가좌"/>
+      <text class="station-label" x="240" y="280">가좌</text>
+      <circle class="station station-kgj" cx="210" cy="300" data-name="디지털미디어시티"/>
+      <text class="station-label" x="170" y="270">
+        <tspan x="190" dy="0">디지털</tspan>
+        <tspan x="180" dy="15">미디어시티</tspan>
+      </text>
+      <circle class="station station-kgj" cx="160" cy="220" data-name="수색"/>
+      <text class="station-label" x="120" y="225">수색</text>
+      <circle class="station station-kgj" cx="160" cy="180" data-name="한국항공대"/>
+      <text class="station-label" x="85" y="185">한국항공대</text>
+      <circle class="station station-kgj" cx="160" cy="140" data-name="강매"/>
+      <text class="station-label" x="120" y="145">강매</text>
+      <circle class="station station-kgj" cx="140" cy="90" data-name="행신"/>
+      <text class="station-label" x="130" y="80">행신</text>
+      <circle class="station station-kgj" cx="100" cy="90" data-name="능곡"/>
+      <text class="station-label" x="90" y="80">능곡</text>
+      <circle class="station station-kgj" cx="60" cy="90" data-name="대곡"/>
+      <text class="station-label" x="50" y="80">대곡</text>
+      <circle class="station station-kgj" cx="10" cy="90" data-name="곡산"/>
+      <text class="station-label" x="0" y="80">곡산</text>
+
+
+      <!--공항철도-->
+      <circle class="station station-ar" cx="10" cy="1100" data-name="인천공항2터미널"/>
+      <text class="station-label" x="25" y="1105">인천공항2터미널</text>
+      <circle class="station station-ar" cx="10" cy="1030" data-name="인천공항1터미널"/>
+      <text class="station-label" x="25" y="1035">인천공항1터미널</text>
+      <circle class="station station-ar" cx="10" cy="960" data-name="공항화물청사"/>
+      <text class="station-label" x="25" y="965">공항화물청사</text>
+      <circle class="station station-ar" cx="10" cy="890" data-name="운서"/>
+      <text class="station-label" x="25" y="895">운서</text>
+      <circle class="station station-ar" cx="10" cy="820" data-name="영종"/>
+      <text class="station-label" x="25" y="825">영종</text>
+      <circle class="station station-ar" cx="10" cy="600" data-name="청라국제도시"/>
+      <text class="station-label" x="25" y="605">청라국제도시</text>
+      <circle class="station station-ar" cx="10" cy="550" data-name="검암"/>
+      <text class="station-label" x="25" y="555">검암</text>
+      <circle class="station station-ar" cx="30" cy="375" data-name="계양"/>
+      <text class="station-label" x="40" y="385">계양</text>
+      <circle class="station station-ar" cx="90" cy="320" data-name="김포공항"/>
+      <text class="station-label" x="60" y="345">김포공항</text>
+      <circle class="station station-ar" cx="140" cy="320" data-name="마곡나루"/>
+      <text class="station-label" x="120" y="345">마곡나루</text>
+      <circle class="station station-ar" cx="210" cy="320" data-name="디지털미디어시티"/>
+      <text class="station-label" x="170" y="270">
+        <tspan x="190" dy="0">디지털</tspan>
+        <tspan x="180" dy="15">미디어시티</tspan>
+      </text>
+      <text class="station-label" x="220" y="492">홍대입구</text>
+      <circle class="station station-ar" cx="340" cy="540" data-name="공덕"/>
+      <text class="station-label" x="330" y="560">공덕</text>
+      <circle class="station station-ar" cx="410" cy="500" data-name="서울역"/>
+      <text class="station-label" x="485" y="505">서울역</text>
+
+
+    </svg>
+  </div>
+  <p id="selectionInfo"></p>
+  <div class="route-input-container">
+      <h3>경로 입력</h3>
+      <form id="route-form">
+          <label for="start-station">출발역:</label><br>
+          <input type="text" id="start-station" name="start-station" placeholder="출발역 입력" /><br><br>
+
+          <label for="end-station">도착역:</label><br>
+          <input type="text" id="end-station" name="end-station" placeholder="도착역 입력" /><br><br>
+
+          <button id="find-path-btn">경로 확인</button>
+
+          <div id="result" style="margin-top: 20px;"></div>
+      </form>
+
+      <div class="additional-box">
+          <h3>역 구간 안내</h3>
+          <div class="line-info line-1">
+              <span class="line-name">1호선</span>: 회기 - 서울역 - 오류동
+          </div>
+          <div class="line-info line-2">
+            <span class="line-name">2호선</span>: 왕십리 - 신림
+        </div>
+          <div class="line-info line-4">
+              <span class="line-name">4호선</span>: 미아사거리 - 서울역 - 대공원
+          </div>
+          <div class="line-info line-kgj">
+              <span class="line-name">경의중앙선</span>: 서울역 - 곡산
+          </div>
+          <div class="line-info line-ar">
+              <span class="line-name">공항철도</span>: 서울역 - 인천공항1터미널
+          </div>
+      </div>
+  </div>
+  </div>
+  <script src="js.js"></script>
+</body>
+</html>
